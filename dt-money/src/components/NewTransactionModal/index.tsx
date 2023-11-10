@@ -11,6 +11,7 @@ const newTransactionFromSchema = z.object({
     price: z.number(),
     category: z.string(),
     /* type: z.enum(['income', 'outcome']) */
+    
 })
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFromSchema>
