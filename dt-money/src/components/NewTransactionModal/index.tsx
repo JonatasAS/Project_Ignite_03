@@ -3,22 +3,24 @@ import { CloseButton, Content, Overlay, TransactionTypeButton, TrasactionType } 
 import * as Dialog from '@radix-ui/react-dialog'
 import * as z from 'zod'
 import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const newTransactionFromSchema = z.object({
     description: z.string(),
     price: z.number(),
     category: z.string(),
-    /* type: z.enum(['income', 'outcome']) */
-    
+    type: z.enum(['income', 'outcome']),    
 })
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFromSchema>
 
 export function NewTransactionModal() {
-    const { register, handleSubmit, formState: {isSubmitting} } = useForm<NewTransactionFormInputs>({
-        resolver: zodResolver(newTransactionFromSchema)
+    const { control, register, handleSubmit, formState: {isSubmitting} } = useForm<NewTransactionFormInputs>({
+        resolver: zodResolver(newTransactionFromSchema),
+        defaultValues: {
+            type: 'income'
+        }
     })
 
     async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
@@ -41,8 +43,13 @@ export function NewTransactionModal() {
                     <input type="number" placeholder="Preço" required {...register('price', { valueAsNumber: true})} />
                     <input type="text" placeholder="Categoria" required {...register('category')} />
 
-                    <TrasactionType>
-                        <TransactionTypeButton variant='income' value='income'>
+              <Controller 
+                control={control}
+                name='type'
+                render={({ field }) => {
+                    return (
+                        <TrasactionType onValueChange={field.onChange} value={field.value}>
+                            <TransactionTypeButton variant='income'     value='income'>
                             <ArrowCircleUp size={24} />
                             Entrar
                         </TransactionTypeButton>
@@ -52,6 +59,9 @@ export function NewTransactionModal() {
                             Saída
                         </TransactionTypeButton>
                     </TrasactionType>
+                    )
+                }}
+              />
 
                     <button type='submit' disabled={isSubmitting}>
                         Cadastrar
