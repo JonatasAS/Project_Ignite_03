@@ -1,21 +1,36 @@
 {
-    "transactions": [
-        {
-            "id": 1,
-            "description": "Desenvolvimento de site",
-            "type": "income",
-            "category": "Venda",
-            "price": 14000,
-            "createdAt": "2023-11-06T19:30:40.505Z"
-        },
-
-        {
-            "id": 2,
-            "description": "PS5",
-            "type": "outcome",
-            "category": "Compra",
-            "price": 4000,
-            "createdAt": "2023-11-06T12:30:40.505Z"
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2023-11-06T19:30:40.505Z"
+    },
+    {
+      "id": 2,
+      "description": "PS5",
+      "type": "outcome",
+      "category": "Compra",
+      "price": 4000,
+      "createdAt": "2023-11-06T12:30:40.505Z"
+    },
+    {
+      "description": "Combustivel",
+      "price": 60,
+      "category": "Transporte",
+      "type": "outcome",
+      "createdAt": "2023-11-14T19:34:14.922Z",
+      "id": 3
+    },
+    {
+      "description": "Trabalho Salario",
+      "price": 4000,
+      "category": "Afresp",
+      "type": "income",
+      "createdAt": "2023-11-14T19:36:09.593Z",
+      "id": 4
+    }
+  ]
 }
