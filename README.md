@@ -12,7 +12,6 @@
 -  Styled component
 -  Zod
 -  json server
--  Local Storage
 
 ## 🖥 O primeiro projeto dt-money
 E uma aplicação que tem como objetivo controlar nossas finanças de entrada e saída de valores monetarios, sendo possível adicionar esses valores e remove-los, conseguindo acompanhar em tempo real o saldo atual calculados a paritr da entrada e saída desses valores. E uma aplicação front-end onde utilizamos o React.js e como base, pra fazer o papel de um back-end usamos o json-server para algumas requisições e testar algumas funcionalidades. Nessa aplicação temos outras ferrametas e bibliotecas que foram utilizadas, mas também focando em boas praticas para esse medelo de aplicação.
